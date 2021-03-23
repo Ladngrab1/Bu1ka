@@ -59,8 +59,104 @@ body::after {
     backdrop-filter: blur(20px);
     border-top: 1px solid rgba(125, 78, 235, 0.3);
     border-left: 1px solid rgba(125, 78, 235, 0.3);
-    ;
     transition: all .5s;
+    overflow: hidden;
+}
+
+.card span {
+    transition: .5s;
+    opacity: 0;
+}
+
+.card:hover span {
+    opacity: 1;
+    box-shadow: 0 0 50px rgb(125, 78, 235),
+     0 0 100px rgba(125, 78, 235, 0.801),
+     0 0 150px rgb(125, 78, 235),
+     0 0 200px rgb(125, 78, 235);
+    
+}
+
+.card span:nth-child(1) {
+    position: absolute;
+    z-index: 1000;
+    height: 3px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, transparent, rgb(94, 50, 255));
+    animation: animate1 2s linear infinite;
+}
+
+@keyframes animate1 {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.card span:nth-child(2) {
+    position: absolute;
+    z-index: 1000;
+    height: 100%;
+    width: 3px;
+    top: 0;
+    right: 0;
+    background: linear-gradient(to bottom, transparent, rgb(94, 50, 255));
+    animation: animate2 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes animate2 {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.card span:nth-child(3) {
+    position: absolute;
+    z-index: 1000;
+    height: 3px;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(to left, transparent, rgb(94, 50, 255));
+    animation: animate3 2s linear infinite;
+}
+
+@keyframes animate3 {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.card span:nth-child(4) {
+    position: absolute;
+    z-index: 1000;
+    height: 100%;
+    width: 3px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to top, transparent, rgb(94, 50, 255));
+    animation: animate4 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes animate4 {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
 }
 
 .card:nth-child(1) {
@@ -151,6 +247,7 @@ body::after {
 }
 
 .content {
+    pointer-events: none;
     padding: 20px;
     text-align: center;
     position: relative;
@@ -169,15 +266,31 @@ body::after {
     font-size: 100px;
     color: #fff;
     position: relative;
+    text-shadow: 0 0 50px rgb(248, 29, 29), 0 0 100px rgb(248, 29, 29), 0 0 150px rgb(248, 29, 29), 0 0 200px rgb(248, 29, 29);
+    animation: animate 4s linear infinite;
 }
-.img{
- position: absolute;
- bottom: -50px;
- left: 50%;
- transform: translateX(-100%) rotate(-25deg);
-filter: blur(3px);
+
+.img {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-100%) rotate(-25deg);
+    filter: blur(1px);
 }
-.img img{
-    width: 70px;
-    height: 70px;
+
+.logo {
+    position: relative;
+    font-size: 60px;
+    color: #fff;
+    text-shadow: 0 0 50px rgb(248, 29, 29), 0 0 100px rgb(248, 29, 29), 0 0 150px rgb(248, 29, 29), 0 0 200px rgb(248, 29, 29);
+    animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
 }
